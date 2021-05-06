@@ -19,7 +19,6 @@ cloudinary.config({
 
 app.get('/api/images', async (req, res) => {
   try {
-    console.log('inside GET function');
     const { resources } = await cloudinary.search
       .expression(`folder:repo AND tags=${req.headers['user']}`)
       .sort_by('public_id', 'desc')
@@ -41,7 +40,6 @@ app.post('/api/upload', async (req, res) => {
     const uploadResponse = await cloudinary.uploader.upload(payload, {
       upload_preset: 'khxzubw4'
     });
-    console.log(uploadResponse);
     res.json({ msg: 'success' });
   } catch (err) {
     console.error(err);

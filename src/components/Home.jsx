@@ -6,20 +6,18 @@ const HomePage = () => {
     const [imageIds, setImageIds] = useState();
     const { user } = useAuth0();
 
-    const loadImages = async () => {
-
-        try {
-            const res = await fetch('/api/images', {headers: {'user': `${user.name}`}});
-            const data = await res.json();
-            setImageIds(data);
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
     useEffect(() => {
+        const loadImages = async () => {
+            try {
+                const res = await fetch('/api/images', {headers: {'user': `${user.name}`}});
+                const data = await res.json();
+                setImageIds(data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
         loadImages();
-    }, []);
+    }, [user.name]);
 
     return (
         <div>

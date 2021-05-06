@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Upload, Button } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
@@ -13,8 +13,14 @@ const UploadPage = () => {
 
   const { user } = useAuth0();
 
+  const handleValidation = (file) => {
+    if (file.type.startsWith("image/") === false){
+      setErrorMsg("Invalid image type");
+      return Upload.LIST_IGNORE;
+    }
+    return true;
+  }
   const handleFileInputChange = e => {
-    console.log(e);
     setSelectedPic(e.fileList[0] ? e.fileList[0].originFileObj : null);
   };
 
@@ -40,9 +46,12 @@ const UploadPage = () => {
       body: formData,
     };
 
+    
+    setLoading(true);
     return fetch('https://api.Cloudinary.com/v1_1/dmrntqcp0/image/upload', options)
     .then(res => res.json())
-    .then( () => {
+    .then( () => {    
+      setLoading(false);
       setSuccessMsg("Successfully stored image");
     })
     .catch(err => {
@@ -59,7 +68,7 @@ const UploadPage = () => {
         <div className="row mt-2">
           <Toast msg={errorMsg} type="danger" />
           <Toast msg={successMsg} type="success" />
-          <Upload onChange={handleFileInputChange} maxCount={1} className="mr-2" customRequest={handleUpload} action={() => {}}>
+          <Upload onChange={handleFileInputChange} maxCount={1} className="mr-2" customRequest={handleUpload} action={() => {}} beforeUpload={handleValidation}>
             <Button icon={<UploadOutlined />}>Select Image</Button>
           </Upload>
           <Button onClick={() => handleSubmit()}>Submit</Button>
