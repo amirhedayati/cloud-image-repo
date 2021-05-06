@@ -25,7 +25,7 @@ const App = () => {
                   <Link to="/upload">Upload</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/" onClick={logout}>Log Out</Link>
+                  <Link to="/" onClick={() => logout()}>Log Out</Link>
                 </li>
               </ul>
             </nav>
