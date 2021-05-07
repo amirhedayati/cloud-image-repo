@@ -1,5 +1,7 @@
 ## This app is deployed to Heroku at https://cloud-image-storage.herokuapp.com/ <br> Password: `shopify2021!`
 
+A simple cloud backed image repository authenticated through [Auth0](https://auth0.com/docs/api/authentication), with image hosting done through [Cloudinary](https://cloudinary.com/). React app and Express server deployed as a [Heroku](https://www.heroku.com/) app.
+
 ## To run the project execute following commands in sequence
 
 In first terminal
@@ -20,12 +22,7 @@ In another terminal
 
 and access the application at `http://localhost:5000/`
 
-## Tech Stack Used
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-The authentication is done through [Auth0](https://auth0.com/docs/api/authentication).
-The image hosting is done through [Cloudinary](https://cloudinary.com/).
-Finally, the React app and Express server is hosted on [Heroku](https://www.heroku.com/).
 
 ## Available Scripts
 
