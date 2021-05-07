@@ -1,4 +1,4 @@
-## This app is deployed to heroku and is accessible at http://cloud-image-storage.herokuapp.com/
+## This app is deployed to heroku and is accessible at https://cloud-image-storage.herokuapp.com/
 
 ## To run the project execute following commands in sequence
 
