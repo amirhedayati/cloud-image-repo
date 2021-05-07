@@ -1,4 +1,4 @@
-## This app is deployed to heroku and is accessible at https://cloud-image-storage.herokuapp.com/
+## This app is deployed to Heroku at https://cloud-image-storage.herokuapp.com/ <br> Password: `shopify2021!`
 
 ## To run the project execute following commands in sequence
 
