@@ -24,9 +24,11 @@ img {
   transition: transform 0.25s ease;
 }
 
-.grid-image:hover {
-  -webkit-transform: scale(1.3);
-  transform: scale(1.3);
+@media only screen and (min-width: 420px) {
+  .grid-image:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
+  }
 }
 
 .nav {
