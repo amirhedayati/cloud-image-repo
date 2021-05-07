@@ -18,9 +18,14 @@ In another terminal
   3. npm start
 ```
 
-and access the application at `http://localhost:3000/`
+and access the application at `http://localhost:5000/`
+
+## Tech Stack Used
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The authentication is done through [Auth0](https://auth0.com/docs/api/authentication).
+The image hosting is done through [Cloudinary](https://cloudinary.com/).
+Finally, the React app and Express server is hosted on [Heroku](https://www.heroku.com/).
 
 ## Available Scripts
 
