@@ -27,8 +27,8 @@ const HomePage = () => {
         loadImages();
         if (deleted){
           setShowModal(false);
+          setDeleted(false);
         }
-        setDeleted(false);
     }, [user.name, deleted]);
 
     const handleImageClick = ({imageId: imageId, index: index}) => {
