@@ -10,7 +10,6 @@ const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.static(buildPath));
 app.use(cors());
 
-
 cloudinary.config({
   cloud_name: process.env.REACT_APP_CLOUDINARY_NAME,
   api_key: process.env.REACT_APP_CLOUDINARY_API_KEY,
@@ -37,17 +36,31 @@ app.get('/api/images', async (req, res) => {
 app.post('/api/upload', async (req, res) => {
   try {
     const payload = req.headers;
-    const uploadResponse = await cloudinary.uploader.upload(payload, {
+
+    await cloudinary.uploader.upload(payload, {
       upload_preset: 'khxzubw4'
     });
-    res.json({ msg: 'success' });
+    res.json({ msg: 'Successfully uploaded image' });
   } catch (err) {
     console.error(err);
     res.status(500).json({ err: 'Something went wrong' });
   }
 });
 
+app.post('/api/delete', async (req, res) => {
+  try {
+    const imageId = req.headers["imageid"];
+
+    await cloudinary.uploader.destroy(imageId, function (error, result) {
+      console.log(error)
+    });;
+    res.json({ msg: 'Successfully deleted image' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ err: 'Something went wrong' });
+  }
+});
 
 app.listen(PORT, () => {
-  console.log(`server started on port ${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });
