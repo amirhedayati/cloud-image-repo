@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from "react-router-dom";
 import { Image } from 'cloudinary-react';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button } from 'antd';
@@ -11,7 +10,6 @@ const HomePage = () => {
     const [showModal, setShowModal] = useState(false);
     const [deleted, setDeleted] = useState(false);
     const { user } = useAuth0();
-    const history = useHistory();
 
 
     useEffect(() => {
@@ -40,10 +38,6 @@ const HomePage = () => {
       try {
               await fetch('/api/delete', {method: 'POST', headers: {"imageId": `${imageId}`}});
               setDeleted(true);
-              const path = "\\";
-              history.push(path);
-
-
             } catch (err) {
                 console.error(err);
             }
