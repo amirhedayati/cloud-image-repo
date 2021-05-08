@@ -9,11 +9,14 @@ const PORT = process.env.PORT || 5000;
 const buildPath = path.join(__dirname, '..', 'build');
 app.use(express.static(buildPath));
 app.use(cors());
+const REACT_APP_CLOUDINARY_API_KEY = 466564889431334
+const REACT_APP_CLOUDINARY_API_SECRET = "v9Uomve7hPsBiHW-I5zrJOQ3oqY"
+const REACT_APP_CLOUDINARY_NAME = "dmrntqcp0"
 
 cloudinary.config({
-  cloud_name: process.env.REACT_APP_CLOUDINARY_NAME,
-  api_key: process.env.REACT_APP_CLOUDINARY_API_KEY,
-  api_secret: process.env.REACT_APP_CLOUDINARY_API_SECRET,
+  cloud_name: REACT_APP_CLOUDINARY_NAME,
+  api_key: REACT_APP_CLOUDINARY_API_KEY,
+  api_secret: REACT_APP_CLOUDINARY_API_SECRET,
 });
 
 app.get('/api/images', async (req, res) => {
