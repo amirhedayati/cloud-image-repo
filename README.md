@@ -1,4 +1,4 @@
-## This app is deployed to Heroku at https://cloud-image-storage.herokuapp.com/ <br> Password: `shopify2021!`
+## This app is deployed to Heroku at https://cloud-image-storage.herokuapp.com/ <br> Password: `amir!`
 
 A simple cloud backed image repository authenticated through [Auth0](https://auth0.com/docs/api/authentication), with image hosting done through [Cloudinary](https://cloudinary.com/). React app and Express server deployed as a [Heroku](https://www.heroku.com/) app.
 
